@@ -1,34 +1,11 @@
 import express from "express";
+import userRouter from "./router/user.js";
+import courseRouter from "./router/course.js";
 const app=express();
 
 
-app.use('/user/signup',function(req,res){
-    res.json({
-        messgae:"helo from user signup"
-    })
-})
-app.use('/user/signin',function(req,res){
-    res.json({
-        messgae:"helo from user signin"
-    })
-})
-
-app.use('/user/purchases',function(req,res){
-    res.json({
-        messgae:"helo from user course purchases"
-    })
-})
-
-app.use('/course/purchase',function(req,res){
-    res.json({
-        messgae:'purchase your course froom here'
-    })
-})
-
-app.use('/courses',function(req,res){
-    res.json({
-        messgae:"all the courses"
-    })
-})
+app.use('/api/v1/user',userRouter)
+//any request coming onto '/user' endpoint will be directed here
+app.use('/api/v1/course',courseRouter)
 app.listen(3000)
 
