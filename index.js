@@ -8,7 +8,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 const connection_string=process.env.connection_string;
 
-console.log("connected to mongoose successfully")
+
 
 const app=express();
 
@@ -21,6 +21,7 @@ app.use('/api/v1/admin',adminRouter)
 async function main(){
     await mongoose.connect(connection_string)
     app.listen(3000)
+    console.log("connected to mongoose successfully")
 
 }
 main()
